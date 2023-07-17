@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  height: 100%;
+
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  min-height: 100%;
+  color: white;
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-weight: bolder;
+  font-size: x-large;
+  font-stretch: extra-expanded;
+  color: orange
+}
+
+.menu-link {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  background: #000000;
+  
+
+
+}
+
+.menu-link:hover {
+  background: #000000;
+  color: #f1c76c;
+
+}
+
+.menu {
+  margin: 0;
+  padding-left: 0px;
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-template-columns: repeat(auto-fill, 120px);*/
+  /* justify-content: center;
+  justify-content: space-between; */
+}
+
+.menu-item {
+  padding-left: 0px;
+  border-radius: 0px;
+
+
+}
+
+.grid-container>* {
+  box-shadow: 1px 1px 7px 0px rgb(0, 0, 0, 0.75);
+  border-radius: 0px;
+  padding: 0px;
+  text-align: center;
+
+}
+
+.grid-container {
+  display: grid;
+  gap: 0px;
+  /* vista para celulares*/
+  /* grid-template:
+    "header" 100px
+    "navbar" 50px
+    "izquierda" auto
+    "contenido" 100px
+    "footer" 100px; */
+}
+
+.header {
+  grid-area: header;
+  background-color: rgb(0, 0, 0);
+
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+
+}
+
+.navbar {
+  grid-area: navbar;
+  background-color: rgb(0, 0, 0);
+  padding-top: 5px;
+
+}
+
+
+.izquierda {
+  grid-area: izquierda;
+  background-color: rgb(0, 0, 0);
+}
+
+.contenido {
+  grid-area: contenido;
+  background-color: rgb(0, 0, 0);
+}
+
+.footer {
+  grid-area: footer;
+  background-color: rgb(0, 0, 0);
+}
+
+/*vista para celulares*/
+@media(min-width:200px) {
+  .grid-container {
+    /*background-color: blue;*/
+    /* grid-template-columns: 200px auto; /* esto indica el tamaño de la columna*/
+    /* grid-template-rows: 100px 50px auto 100px; /* nos indica el tamaño de las filas*/
+    /* grid-template-areas:
+      "header header"
+      "navbar navbar"
+      "izquierda contenido"
+      "footer footer"; */
+
+    /*forma mas elegante de poner el tamaño vista para tables*/
+    grid-template:
+      "navbar" auto
+      "header" 100px
+      "izquierda" auto
+      "contenido" auto
+      "footer" 100px;
+    /* luego del eslash se pone el ancho de las columnas*/
+
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, 85px);
+    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .menu-item>li {
+    padding-right: 15px;
+    border-radius: 0px;
+
+
+  }
+  .logo {
+    width: auto;
+    margin-right: 0px;
+    justify-content: space-between;
+  }
+
+}
+
+/*vista para tables*/
+@media(min-width:560px) {
+  .grid-container {
+    /*background-color: blue;*/
+    /* grid-template-columns: 200px auto; /* esto indica el tamaño de la columna*/
+    /* grid-template-rows: 100px 50px auto 100px; /* nos indica el tamaño de las filas*/
+    /* grid-template-areas:
+      "header header"
+      "navbar navbar"
+      "izquierda contenido"
+      "footer footer"; */
+
+    /*forma mas elegante de poner el tamaño vista para tables*/
+    grid-template:
+      "navbar navbar" auto
+      "header header" 100px
+      "izquierda contenido" auto
+      "footer footer" 100px / 200px auto;
+    /* luego del eslash se pone el ancho de las columnas*/
+
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+
+  .menu {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, 220px);
+    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .menu-item {
+    padding-left: 20px;
+    border-radius: 10px;
+
+
+  }
+.menu > li {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: orange;
+  font-size: 30px;
+  justify-content: space-between;
+}
+
+
+}
+
+/*vista para monitores*/
+@media (min-width 1180px) {
+  .grid-container {
+
+    grid-template:
+      "navbar navbar navbar" 100px
+      "header izquierda contenido" auto
+      "footer footer footer" 100px / 200px auto 200px;
+  }
+
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, 390px);
+    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+
+  .menu-item {
+    /*padding-left: 20px;*/
+    border-radius: 10px;
+
+
+  }
+  .menu > li {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: orange;
+    font-size: 20px;
+  }
+
+}
+
+/*Copiando Estilo del Index*/
+.firma {
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-weight: bolder;
+  font-size: x-large;
+  font-stretch: extra-expanded;
+  color: orange
+}
+
+/* llamando nuestra Api por medio de FETCH*/
+.box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.mostrar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  display: block;
+
+}
+

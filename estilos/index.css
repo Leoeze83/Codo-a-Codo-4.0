@@ -1,0 +1,352 @@
+/* imports */
+
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+/* paleta personalizada */
+:root {
+  --main-medium: #7fdff7;
+  --main-fuente2: #df4040;
+  --main-fuente: black;
+  --main-pie: #ff9100;
+  --main-fuentebtc: #efc775;
+  --colorPrincipal: #3c498f;
+}
+
+/* edicion CSS del HTML */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+a {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+b {
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+/* principal*/
+
+body {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: black;
+}
+
+/*Modo Oscuro - Claro . Automatico segun config de Browser
+
+body {
+  background-color: Canvas;
+  color: CanvasText;
+  color-scheme: light dark;
+}
+*/
+
+/* NavBar */
+
+.cont_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  place-content: space-between;
+  justify-content: center;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  z-index: 99999;
+}
+
+.title-adapt {
+  display: none;
+  color: #efc775;
+}
+
+#menu,
+#menu-check {
+  display: none;
+}
+
+nav {
+  display: inline-flex;
+  margin-top: 15px;
+  background-color: none;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 50px;
+}
+
+nav li a:hover {
+  color: #f1c76c;
+  font-weight: bolder;
+  border-radius: 35%;
+}
+
+div .logo {
+  width: auto;
+  margin-right: 30px;
+}
+
+h1 {
+  color: var(--main-fuentebtc);
+  font-size: 2.5em;
+  font-weight: 900;
+  -webkit-text-stroke: 1px var(--main-dark);
+}
+
+/*Dashboard - Link */
+
+a.dashboard {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: orange;
+  font-size: 30px;
+}
+
+/* textos */
+
+p {
+  color: var(--main-dark);
+  text-align: center;
+  font-size: 1.2em;
+}
+
+figcaption {
+  color: var(--main-pie);
+  font-size: 1.3em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.info h2 {
+  font-size: 3em;
+  color: var(--main-fuente2);
+}
+
+.btc h2 {
+  font-size: 2em;
+  color: var(--main-fuentebtc);
+}
+
+.blockchain h2 {
+  font-size: 3em;
+  color: var(--main-medium);
+  -webkit-text-stroke: 1px var(--main-dark);
+}
+
+h3 {
+  font-size: 1.6em;
+  color: var(--main-borde);
+  -webkit-text-stroke: 1px var(--main-dark);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+}
+
+h4 {
+  font-size: 1.5em;
+  stroke: blue;
+  background: var(--main-fuente2);
+  border-radius: 0.5rem;
+  width: 10em;
+}
+
+/* imagenes*/
+
+/*Imagen con animacion*/
+.figanimada {
+  display: inline-block;
+  width: 480px;
+  height: auto;
+}
+
+.figanimada:hover {
+  animation-delay: 4s;
+  animation: rubberBand;
+  animation-duration: 5s;
+}
+
+/* Suscribe*/
+.e-mail {
+  margin-bottom: 25px;
+}
+
+.suscribe {
+  background-color: orange;
+  margin-top: 20px;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* footer */
+
+.firma {
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-weight: bolder;
+  font-size: x-large;
+  font-stretch: extra-expanded;
+  color: orange;
+}
+
+/*Responsive*/
+
+@media (min-width: 1280px) {
+  header {
+    background-size: contain;
+  }
+
+  p {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 1010px) {
+  div .logo {
+    width: auto;
+    margin-right: 0px;
+  }
+
+  .cont_nav {
+    display: flex;
+    place-content: space-between;
+  }
+
+  .title-adapt {
+    display: block;
+    position: absolute;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  /* Menu Hamburguer*/
+
+  #menu-check:not(:checked) ~ nav {
+    display: none;
+  }
+
+  #menu-check:checked ~ nav {
+    display: block;
+  }
+
+  #menu {
+    display: block;
+    color: #ff9100;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    right: 0.5em;
+    top: 0.3em;
+    z-index: 9999;
+  }
+
+  #menu:hover {
+    color: black;
+    background-color: #ff9100;
+  }
+
+  #menu-cerrar {
+    display: none;
+  }
+
+  #menu-check:checked ~ label #menu-abrir {
+    display: none;
+  }
+
+  #menu-check:checked ~ label #menu-cerrar {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    background-color: rgb(240, 237, 237);
+    padding-top: 0.3em;
+    opacity: 70%;
+    z-index: 9999;
+  }
+
+  nav li a {
+    color: red;
+    font-weight: bold;
+  }
+
+  nav {
+    display: inline-flex;
+    margin-top: 50px;
+    overflow: scroll;
+  }
+
+  nav li a {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: x-large;
+  }
+
+  /*-----------------------------------------------*/
+
+  img.figanimada {
+    width: 100%;
+  }
+
+  img.btc {
+    width: 95%;
+  }
+
+  iframe {
+    width: 100%;
+  }
+
+  /* Footer*/
+
+  .firma {
+    font-size: medium;
+    padding-bottom: 7%;
+    padding-top: 4%;
+    color: var(--main-pie);
+    background-color: black;
+  }
+}

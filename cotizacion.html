@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="./estilos/estilos.css" />-->
+    <link rel="stylesheet" href="./estilos/cotizacion.css" />
+    <title>Cotización</title>
+</head>
+
+<body class="grid-container">
+
+    <body>
+        <header class="header">
+
+            <img src="./imagenes/btc2.jpg" alt="" class="gallery-img">
+
+        </header>
+
+        <nav class="navbar">
+            
+            <ul class="menu">
+                <a href="./index.html">
+                    <img class="logo" src="imagenes/B-48px.png" alt="Logo- Inicio">
+                  </a>
+                <li class="menu-item"><a class="menu-link" href="./index.html">Inicio</a></li>
+                <li class="menu-item"><a class="menu-link" href="./quienes.html">Nosotros</a></li>
+                <li class="menu-item"><a class="menu-link" href="./cotizacion.html">Cotización</a></li>
+                <li class="menu-item"><a class="menu-link" href="./contacto.html">Contacto</a></li>
+                <!-- <li class="menu-item"><a class="menu-link" href="./iniciar.html">Iniciar</a></li> -->
+
+
+            </ul>
+
+        </nav>
+        <aside class="izquierda">
+            <h2>Mercados disponibles</h2>
+            <a>
+                Siempre que podemos, proporcionamos datos en tiempo real y de forma gratuita. Sin embargo, algunos datos
+                se retrasan ya que hay que cumplir con las normas específicas establecidas por los mercados de valores.
+                Por este motivo, los datos en tiempo real deben comprarse por separado a través de la siguiente página.
+                Los datos del mercado de valores de EE. UU. los proporciona Cboe One en tiempo real.
+
+                Populares 18
+
+                Criptomoneda 51
+
+                Norteamérica 17
+
+                Europa 35
+
+
+            </a>
+        </aside>
+        <article class="contenido">
+            <h1> Ver información de Cripto Easy </h1>
+            <input type="text" id="cripto-input" placeholder="Ingrese (bitcoin,cardano,ethereum)">
+            <button onclick="obtenerDatos()">Obtener Datos</button>
+            <div  class="mostrar"  id="resultado-api"></div>
+            <script>
+                const apiUrl = 'https://api.coincap.io/v2/assets';
+                const resultadoElemento = document.getElementById('resultado-api');
+        
+                function obtenerDatos() {
+                    const criptoInput = document.getElementById('cripto-input').value;
+        
+                    // Obtener los símbolos de las criptomonedas ingresadas
+                    const simbolos = criptoInput.split(',');
+        
+                    simbolos.forEach(simbolo => {
+                        // Construir la URL de la API para cada símbolo
+                        const url = `${apiUrl}/${simbolo}`;
+        
+                        // Realizar la solicitud a la API utilizando fetch
+                        fetch(url)
+                            .then(response => response.json())
+                            .then(data => {
+                                // Verificar si se encontró la criptomoneda
+                                if (data.data) {
+                                    const cripto = data.data;
+                                    const nombre = cripto.name;
+                                    const precio = cripto.priceUsd;
+                                    const cambio = cripto.changePercent24Hr;
+        
+                                    // Crear un elemento de cuadro para mostrar los resultados
+                                    const boxElemento = document.createElement('div');
+                                    boxElemento.classList.add('box');
+        
+                                    // Agregar el contenido del cuadro
+                                    boxElemento.innerHTML = `
+                        <h3>${nombre} (${simbolo})</h3>
+                        <p>Precio: $${precio}</p>
+                        <p>Cambio en las últimas 24 horas: ${cambio}%</p>
+                      `;
+        
+                                    // Agregar el cuadro al elemento de resultados
+                                    resultadoElemento.appendChild(boxElemento);
+                                } else {
+                                    // Mostrar un mensaje de error si no se encontró la criptomoneda
+                                    const errorElemento = document.createElement('p');
+                                    errorElemento.textContent = `No se encontró información para la criptomoneda con símbolo ${simbolo}`;
+                                    resultadoElemento.appendChild(errorElemento);
+                                }
+                            })
+                            .catch(error => {
+                                // Mostrar un mensaje de error si ocurrió un problema durante la solicitud
+                                const errorElemento = document.createElement('p');
+                                errorElemento.textContent = `Error: ${error.message}`;
+                                resultadoElemento.appendChild(errorElemento);
+                            });
+                    });
+                }
+            </script>
+
+        </article>
+        <footer class="footer">
+            <figcaption class="firma">
+                &copy; by Group III - 23006 for Codo a Codo &copy;
+            </figcaption>
+
+        </footer>
+
+    </body>
+
+</html>
